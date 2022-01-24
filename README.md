@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/tnextday/docker-clash-ui/actions/workflows/release-package.yml/badge.svg)](https://github.com/tnextday/docker-clash-ui/actions/workflows/release-package.yml)
 
-Host (clash-dashboard)[https://github.com/Dreamacro/clash-dashboard] and (yacd)[https://github.com/haishanh/yacd] in docker
+Host [clash-dashboard](https://github.com/Dreamacro/clash-dashboard) and [yacd](https://github.com/haishanh/yacd) in docker
 
 # Get Start
 
