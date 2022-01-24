@@ -1,4 +1,4 @@
-ARG CLASH_IMAGE="ghcr.io/dreamacro/clash-premium:2021.12.07"
+ARG YACD_VERSION="v0.3.4"
 
 FROM node:lts
 
@@ -16,7 +16,16 @@ RUN set -ex;\
     mkdir -p /ui; \
     cp -R dist/* /ui;
 
+FROM haishanh/yacd:$YACD_VERSION as yacd
 
-FROM $CLASH_IMAGE
+FROM alpine:3.15
 
-COPY --from=0 /ui /ui
+
+COPY --from=0 /ui /www/ui
+COPY --from=yacd /usr/share/nginx/html /www/yacd
+
+RUN apk add -U --no-cache darkhttpd;
+
+ENV PORT 8080
+
+CMD darkhttpd /www/ --no-listing --port $PORT
